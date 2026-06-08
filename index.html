@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>家づくりガイド｜コーディネート編 2023 – 工房信州の家</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;background:#faf7f2;color:#2e2b26;line-height:1.8}
+img{max-width:100%;border-radius:8px}
+
+/* ===== DESIGN TOKENS ===== */
+:root{
+  --forest:#3b5c2a;
+  --forest-mid:#527a3a;
+  --forest-pale:#e8f0e0;
+  --earth:#7a5c32;
+  --earth-pale:#f5ede0;
+  --sand:#c8a96e;
+  --cream:#faf7f2;
+  --white:#ffffff;
+  --text:#2e2b26;
+  --text-light:#6b6355;
+  --border:#ddd5c5;
+  --shadow:0 4px 24px rgba(60,40,20,.10);
+  --r:12px;
+}
+
+/* ===== HERO HEADER ===== */
+header{
+  position:relative;
+  background:linear-gradient(160deg, #2d4a1e 0%, #4a7030 60%, #6a9448 100%);
+  padding:48px 24px 56px;
+  overflow:hidden;
+  text-align:center;
+  color:#fff;
+}
+header::before{
+  content:'';
+  position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M40 0C17.9 0 0 17.9 0 40s17.9 40 40 40 40-17.9 40-40S62.1 0 40 0zm0 6c18.8 0 34 15.2 34 34S58.8 74 40 74 6 58.8 6 40 21.2 6 40 6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+}
+/* leaf decorations */
+header::after{
+  content:'🌿';
+  position:absolute;right:5%;bottom:-12px;
+  font-size:120px;opacity:.15;transform:rotate(-20deg);
+  pointer-events:none;
+}
+.header-leaf2{
+  position:absolute;left:2%;top:20px;
+  font-size:80px;opacity:.12;transform:rotate(30deg);
+  pointer-events:none;
+}
+.header-inner{position:relative;z-index:1}
+.header-badge{
+  display:inline-block;background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.3);border-radius:20px;
+  padding:4px 16px;font-size:.75rem;letter-spacing:.1em;margin-bottom:16px;
+}
+header h1{font-family:'Noto Serif JP',serif;font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.3;margin-bottom:8px}
+header p{font-size:.85rem;opacity:.8;letter-spacing:.05em}
+.header-menu-hint{
+  margin-top:24px;font-size:.78rem;opacity:.7;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.header-menu-hint::before,.header-menu-hint::after{content:'';flex:1;max-width:60px;height:1px;background:rgba(255,255,255,.4)}
+
+/* ===== NAV TABS ===== */
+.nav-wrapper{
+  background:#fff;border-bottom:2px solid var(--forest-pale);
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+nav{
+  display:flex;overflow-x:auto;white-space:nowrap;
+  scrollbar-width:none;padding:0 8px;
+  max-width:1100px;margin:0 auto;
+}
+nav::-webkit-scrollbar{display:none}
+nav button{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:14px 14px;color:var(--text-light);
+  background:none;border:none;cursor:pointer;font-size:.8rem;
+  border-bottom:3px solid transparent;transition:all .2s;
+  font-family:'Noto Sans JP',sans-serif;white-space:nowrap;
+  flex-shrink:0;
+}
+nav button .tab-icon{font-size:1rem}
+nav button:hover{color:var(--forest);background:var(--forest-pale)}
+nav button.active{color:var(--forest);border-bottom-color:var(--forest);font-weight:700}
+
+/* ===== MAIN CONTENT ===== */
+main{max-width:960px;margin:0 auto;padding:32px 16px 60px}
+
+.section{display:none;animation:fadeIn .35s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* Section heading */
+.section-header{
+  display:flex;align-items:center;gap:14px;margin-bottom:28px;
+  padding-bottom:16px;border-bottom:2px solid var(--forest-pale);
+}
+.section-header .sec-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:linear-gradient(135deg,var(--forest),var(--forest-mid));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;flex-shrink:0;
+  box-shadow:0 4px 12px rgba(59,92,42,.25);
+}
+.section-header h2{font-family:'Noto Serif JP',serif;font-size:1.5rem;color:var(--forest)}
+.section-header p{font-size:.82rem;color:var(--text-light);margin-top:2px}
+
+/* ===== CARDS ===== */
+.card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r);padding:22px 24px;margin-bottom:18px;
+  box-shadow:var(--shadow);transition:box-shadow .2s;
+}
+.card:hover{box-shadow:0 8px 32px rgba(60,40,20,.13)}
+.card h3{
+  font-family:'Noto Serif JP',serif;font-size:1rem;
+  color:var(--earth);margin-bottom:12px;
+  padding-bottom:8px;border-bottom:1px dashed var(--border);
+  display:flex;align-items:center;gap:8px;
+}
+.card h3 .icon{font-size:1.1rem}
+.card h4{font-size:.88rem;color:var(--forest);margin:14px 0 6px;font-weight:700}
+.card p{font-size:.87rem;line-height:1.85;color:var(--text);margin-bottom:8px}
+.card ul{padding-left:18px;font-size:.87rem;line-height:2}
+.card li{margin-bottom:2px}
+
+/* grids */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:640px){.g2,.g3{grid-template-columns:1fr}}
+
+/* ===== TASTE CARDS ===== */
+.taste-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
+@media(max-width:580px){.taste-grid{grid-template-columns:1fr}}
+.taste-card{
+  border-radius:var(--r);padding:32px 24px;text-align:center;
+  position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;
+  cursor:default;
+}
+.taste-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.15)}
+.taste-card .taste-tag{
+  font-size:.72rem;letter-spacing:.12em;opacity:.7;margin-bottom:8px;text-transform:uppercase;
+}
+.taste-card h3{font-family:'Noto Serif JP',serif;font-size:1.3rem;margin-bottom:10px}
+.taste-card p{font-size:.84rem;line-height:1.7;opacity:.85}
+.taste-card .deco{position:absolute;bottom:-20px;right:-10px;font-size:80px;opacity:.12;transform:rotate(-15deg)}
+.t-wa{background:linear-gradient(135deg,#f5ede0,#e8ddd0);color:#4a3828;border:1px solid #c8b89a}
+.t-woody{background:linear-gradient(135deg,#e8f0e0,#d4e6c4);color:#2d4a1e;border:1px solid #9abf7a}
+.t-natural{background:linear-gradient(135deg,#e8f0f5,#d4e0ea);color:#1e3a4a;border:1px solid #7aabcf}
+.t-manish{background:linear-gradient(135deg,#2a2a2a,#3a3a3a);color:#f0f0f0;border:1px solid #555}
+
+/* ===== INFO BOXES ===== */
+.info{
+  background:linear-gradient(135deg,#eef5e8,#f0f5e8);
+  border-left:4px solid var(--forest-mid);
+  border-radius:0 10px 10px 0;
+  padding:14px 18px;margin:12px 0;
+  font-size:.86rem;line-height:1.85;color:var(--text);
+}
+.warn{
+  background:linear-gradient(135deg,#fdf5e0,#faf0d4);
+  border-left:4px solid var(--sand);
+  border-radius:0 10px 10px 0;
+  padding:14px 18px;margin:12px 0;
+  font-size:.86rem;line-height:1.85;
+}
+.tip{
+  display:flex;gap:12px;align-items:flex-start;
+  background:#fafaf8;border:1px solid var(--border);
+  border-radius:10px;padding:14px 16px;margin:10px 0;font-size:.86rem;
+}
+.tip-icon{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+
+/* ===== TABLES ===== */
+table{width:100%;border-collapse:collapse;font-size:.83rem;margin:10px 0}
+th{background:var(--forest);color:#fff;padding:10px 12px;text-align:left;font-weight:500}
+td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.7}
+tr:nth-child(even) td{background:#f8f5f0}
+tr:hover td{background:var(--forest-pale)}
+
+/* ===== CHECKLIST ===== */
+.check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0}
+.check-item{
+  padding:8px 12px;font-size:.86rem;
+  border-bottom:1px solid #f0ebe0;
+  display:flex;align-items:center;gap:8px;
+  transition:background .15s;
+}
+.check-item:hover{background:var(--forest-pale)}
+.check-item::before{content:'☐';color:var(--forest);font-size:.9rem;flex-shrink:0}
+
+/* ===== PHOTO GALLERY ===== */
+.photo-section{margin-top:20px}
+.photo-section h4{
+  font-size:.85rem;color:var(--text-light);
+  display:flex;align-items:center;gap:8px;margin-bottom:12px;
+}
+.photo-section h4::before{content:'📷';font-size:1rem}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.photo-item{
+  position:relative;aspect-ratio:4/3;border-radius:10px;
+  overflow:hidden;background:var(--forest-pale);
+  border:2px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;color:var(--text-light);flex-direction:column;gap:6px;
+}
+.photo-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-add-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:none;border:2px dashed var(--forest-mid);border-radius:8px;
+  padding:10px 20px;color:var(--forest);font-size:.82rem;cursor:pointer;
+  margin-top:8px;font-family:inherit;transition:all .2s;
+}
+.photo-add-btn:hover{background:var(--forest-pale)}
+
+/* ===== BADGE ===== */
+.badge{
+  display:inline-block;background:var(--forest);color:#fff;
+  border-radius:20px;padding:3px 12px;font-size:.75rem;
+  margin:2px;letter-spacing:.03em;
+}
+.badge-earth{background:var(--earth)}
+.badge-sand{background:var(--sand);color:var(--text)}
+
+/* ===== SPEC BOX ===== */
+.spec-box{
+  background:var(--earth-pale);border-radius:10px;
+  padding:16px 20px;display:flex;flex-direction:column;gap:8px;
+}
+.spec-row{
+  display:flex;gap:12px;font-size:.85rem;
+  padding-bottom:8px;border-bottom:1px solid rgba(122,92,50,.1);
+}
+.spec-row:last-child{border-bottom:none;padding-bottom:0}
+.spec-label{color:var(--earth);font-weight:700;min-width:120px;flex-shrink:0}
+.spec-value{color:var(--text)}
+
+/* ===== DIVIDER ===== */
+.divider{display:flex;align-items:center;gap:12px;margin:24px 0;color:var(--text-light);font-size:.8rem}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ===== FOOTER ===== */
+footer{
+  background:linear-gradient(160deg,#2d4a1e,#3b5c2a);
+  color:rgba(255,255,255,.85);text-align:center;
+  padding:36px 20px;font-size:.8rem;line-height:2;
+}
+footer a{color:var(--sand);text-decoration:none}
+
+/* ===== BACK TO TOP ===== */
+.back-top{
+  position:fixed;bottom:24px;right:24px;width:44px;height:44px;
+  background:var(--forest);color:#fff;border:none;border-radius:50%;
+  cursor:pointer;font-size:1.1rem;box-shadow:0 4px 16px rgba(0,0,0,.2);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s;z-index:200;
+}
+.back-top.show{opacity:1}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-leaf2">🌿</div>
+  <div class="header-inner">
+    <div class="header-badge">工房信州の家 ／ フォレストコーポレーション</div>
+    <h1>家づくりガイド<br>コーディネート編</h1>
+    <p>2023年版 ― あなただけの理想の空間へ</p>
+    <div class="header-menu-hint">下のタブからカテゴリを選んでご覧ください</div>
+  </div>
+</header>
+
+<!-- NAV -->
+<div class="nav-wrapper">
+<nav id="mainNav">
+  <button class="active" onclick="show('打合せ',this)"><span class="tab-icon">📋</span>打合せ内容</button>
+  <button onclick="show('部位名称',this)"><span class="tab-icon">🏠</span>建築部位名称</button>
+  <button onclick="show('テイスト',this)"><span class="tab-icon">🎨</span>4つのテイスト</button>
+  <button onclick="show('収納',this)"><span class="tab-icon">📦</span>収納</button>
+  <button onclick="show('照明',this)"><span class="tab-icon">💡</span>照明・コンセント</button>
+  <button onclick="show('標準機器',this)"><span class="tab-icon">🔧</span>標準機器</button>
+  <button onclick="show('インターネット',this)"><span class="tab-icon">📡</span>インターネット・TV</button>
+  <button onclick="show('カーテン',this)"><span class="tab-icon">🪟</span>窓廻り・カーテン</button>
+  <button onclick="show('洗面',this)"><span class="tab-icon">🚿</span>造作洗面</button>
+  <button onclick="show('家具',this)"><span class="tab-icon">🛋</span>家具</button>
+  <button onclick="show('仕上げ',this)"><span class="tab-icon">🪵</span>内外装仕上げ</button>
+  <button onclick="show('給湯器',this)"><span class="tab-icon">🔥</span>給湯器</button>
+  <button onclick="show('暖房',this)"><span class="tab-icon">🌡</span>暖房機器</button>
+  <button onclick="show('ペット',this)"><span class="tab-icon">🐾</span>ペット</button>
+  <button onclick="show('選木',this)"><span class="tab-icon">🌲</span>選木・太鼓梁</button>
+  <button onclick="show('コロナ',this)"><span class="tab-icon">🏡</span>住まいの工夫</button>
+  <button onclick="show('植栽',this)"><span class="tab-icon">🌳</span>庭・植栽</button>
+</nav>
+</div>
+
+<main>
+
+<!-- 打合せ -->
+<div class="section active" id="打合せ">
+  <div class="section-header">
+    <div class="sec-icon">📋</div>
+    <div><h2>打ち合わせ内容の紹介</h2><p>コーディネート打合せで決めること一覧</p></div>
+  </div>
+  <div class="info">いよいよ、工房信州の家のコーディネート打合せが始まります。理想の空間になるよう、一緒に考えていきましょう。内外装をはじめ、設備や照明、カーテンや家具まで、コーディネート打合せは多岐にわたります。専属のコーディネーターが、おすすめする4つのテイストを軸に、様々なご要望をお聞きしながら、お客様それぞれに合ったオーダーメイドの空間づくりをお手伝いさせていただきます。</div>
+  <div class="g2" style="margin-top:18px">
+    <div class="card">
+      <h3><span class="icon">🏡</span>外装</h3>
+      <div class="check-grid">
+        <div class="check-item">外壁</div><div class="check-item">屋根</div>
+        <div class="check-item">外観アクセント（板張りetc）</div>
+        <div class="check-item">窓</div><div class="check-item">ポーチ</div><div class="check-item">玄関ドア</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🌿</span>エクステリア</h3>
+      <div class="check-grid">
+        <div class="check-item">植栽</div><div class="check-item">駐車スペース</div>
+        <div class="check-item">アプローチ</div><div class="check-item">外水栓</div>
+        <div class="check-item">薪小屋</div><div class="check-item">物置</div><div class="check-item">境界</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🎨</span>内装</h3>
+      <div class="check-grid">
+        <div class="check-item">床材</div><div class="check-item">壁材</div>
+        <div class="check-item">天井</div><div class="check-item">炉台</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="icon">💡</span>照明・コンセント</h3>
+      <div class="check-grid">
+        <div class="check-item">照明器具</div><div class="check-item">コンセント箇所</div>
+        <div class="check-item">インターネット</div><div class="check-item">TV</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🚪</span>内部建具</h3>
+      <div class="check-grid">
+        <div class="check-item">框戸デザイン</div><div class="check-item">襖カラー</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🪟</span>窓・カーテン</h3>
+      <div class="check-grid">
+        <div class="check-item">生地カラー・柄</div><div class="check-item">スタイル</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🛋</span>家具</h3>
+      <div class="check-grid">
+        <div class="check-item">オーダー家具</div><div class="check-item">ダイニングテーブル</div>
+        <div class="check-item">テレビ台</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="icon">📦</span>収納</h3>
+      <div class="check-grid">
+        <div class="check-item">シューズクローゼット</div><div class="check-item">WIC</div>
+        <div class="check-item">食品庫</div>
+      </div>
+    </div>
+    <div class="card" style="grid-column:1/-1">
+      <h3><span class="icon">⚙️</span>設備</h3>
+      <div class="check-grid">
+        <div class="check-item">暖房</div><div class="check-item">給湯器</div>
+        <div class="check-item">キッチン</div><div class="check-item">浴室</div>
+        <div class="check-item">トイレ</div><div class="check-item">洗面</div>
+        <div class="check-item">物干し</div><div class="check-item">太陽光パネル</div>
+      </div>
+    </div>
+  </div>
+  <div class="photo-section">
+    <h4>参考写真・資料</h4>
+    <div class="photo-grid" id="photos-打合せ"></div>
+  </div>
+</div>
+
+<!-- 部位名称 -->
+<div class="section" id="部位名称">
+  <div class="section-header">
+    <div class="sec-icon">🏠</div>
+    <div><h2>建築部位名称の説明</h2><p>各部位の名称と工房信州の家の標準寸法</p></div>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <h3><span class="icon">🏡</span>外部の部位名称</h3>
+      <ul>
+        <li>軒樋</li><li>幕板・破風（母屋表し）</li><li>幕板・破風（二重破風）</li>
+        <li>付庇</li><li>エアパス換気口</li><li>軒裏天井</li>
+        <li>水切り</li><li>竪樋</li><li>下屋</li><li>中間見切縁</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🪵</span>内部の部位名称</h3>
+      <ul>
+        <li>梁 / 火打梁</li><li>柱</li><li>巾木</li><li>天井見切</li>
+        <li>手摺</li><li>太鼓梁</li>
+        <li>コーナー見切（木）</li><li>コーナー見切（樹脂製）</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🔨</span>建築部材の説明</h3>
+      <ul>
+        <li>上がり框 / 框戸</li><li>ペーパーホルダー</li><li>手摺 / 腰板張り</li>
+        <li>タオル掛 / 換気扇</li><li>廻り縁（目透かし・木）</li>
+        <li>壁板張り（節有材）</li><li>天井板張り（節有材・節無材）</li>
+        <li>P.B表し / 階段段裏表し</li>
+      </ul>
+      <div class="warn" style="margin-top:10px">※表し：仕上げをせずにそのまま表すこと</div>
+    </div>
+    <div class="card">
+      <h3><span class="icon">📐</span>工房信州の家 標準寸法一覧</h3>
+      <div class="spec-box">
+        <div class="spec-row"><span class="spec-label">天井高さ（LDK）</span><span class="spec-value">2,530㎜</span></div>
+        <div class="spec-row"><span class="spec-label">天井高さ（他居室）</span><span class="spec-value">2,400㎜</span></div>
+        <div class="spec-row"><span class="spec-label">玄関上がり框段差</span><span class="spec-value">240㎜</span></div>
+        <div class="spec-row"><span class="spec-label">サロン上がり框段差</span><span class="spec-value">240㎜ または 350㎜</span></div>
+        <div class="spec-row"><span class="spec-label">内部建具高さ</span><span class="spec-value">1,950㎜</span></div>
+        <div class="spec-row"><span class="spec-label">手摺高さ</span><span class="spec-value">950㎜</span></div>
+        <div class="spec-row"><span class="spec-label">サッシ取付高さ（1階）</span><span class="spec-value">H2,000㎜</span></div>
+        <div class="spec-row"><span class="spec-label">サッシ取付高さ（2階）</span><span class="spec-value">1,950㎜</span></div>
+      </div>
+      <p style="font-size:.76rem;color:var(--text-light);margin-top:8px">※希望に応じて調整可</p>
+    </div>
+  </div>
+  <div class="photo-section"><h4>参考写真</h4><div class="photo-grid" id="photos-部位名称"></div></div>
+</div>
+
+<!-- テイスト -->
+<div class="section" id="テイスト">
+  <div class="section-header">
+    <div class="sec-icon">🎨</div>
+    <div><h2>4つのテイスト</h2><p>あなたらしい空間のスタイルを見つけましょう</p></div>
+  </div>
+  <div class="info">詳細は、別紙のDesign Taste Bookをご覧ください</div>
+  <div class="taste-grid" style="margin-top:20px">
+    <div class="taste-card t-wa">
+      <div class="taste-tag">STYLE 01</div>
+      <h3>和</h3>
+      <p>こころが和む、豊かな暮らし</p>
+      <div class="deco">🌸</div>
+    </div>
+    <div class="taste-card t-woody">
+      <div class="taste-tag">STYLE 02</div>
+      <h3>Woody</h3>
+      <p>自分らしく、遊び心のある暮らし</p>
+      <div class="deco">🌿</div>
+    </div>
+    <div class="taste-card t-natural">
+      <div class="taste-tag">STYLE 03</div>
+      <h3>NATURAL</h3>
+      <p>木のぬくもり 安らぐ暮らし</p>
+      <div class="deco">🍃</div>
+    </div>
+    <div class="taste-card t-manish">
+      <div class="taste-tag">STYLE 04</div>
+      <h3>MANISH</h3>
+      <p>お洒落な大人の上質な暮らし</p>
+      <div class="deco">✦</div>
+    </div>
+  </div>
+  <div class="photo-section" style="margin-top:28px"><h4>スタイル参考写真</h4><div class="photo-grid" id="photos-テイスト"></div></div>
+</div>
+
+<!-- 収納 -->
+<div class="section" id="収納">
+  <div class="section-header">
+    <div class="sec-icon">📦</div>
+    <div><h2>収納のあれこれ</h2><p>家族の持ち物量を知って、適切な収納を計画しましょう</p></div>
+  </div>
+  <div class="info">新築住宅の収納計画を考える上で、どの程度の収納量が必要か振り返って考えてみましょう（無印良品の家 アンケート調査2009年〔収納編〕参照）</div>
+  <div class="divider">衣類・靴・日用品</div>
+  <div class="card">
+    <h3><span class="icon">👗</span>衣類の量（4人世帯平均）</h3>
+    <div class="g2">
+      <div><h4>たたんでしまう衣類</h4><p>衣装ケース（中）W44 D55 H24㎝<br>大人平均7〜8ケース、子供3〜4ケース</p></div>
+      <div><h4>吊るしてしまう衣類</h4><p>スチールハンガー W90㎝ × 5〜6ラック（4人世帯平均）</p></div>
+    </div>
+    <h4>靴の量（室内履き除く）</h4>
+    <p>大人平均 13〜14足 ／ 子供平均 4〜5足</p>
+  </div>
+  <div class="card">
+    <h3><span class="icon">📚</span>本・CD・DVD（3〜4人世帯平均）</h3>
+    <table>
+      <tr><th>種類</th><th>量の目安</th><th>収納スペース目安</th></tr>
+      <tr><td>本・書籍</td><td>一般的な本棚（W80 D26 H180㎝）×3棚分</td><td>—</td></tr>
+      <tr><td>CD</td><td>180枚</td><td>長さ約1m80cm</td></tr>
+      <tr><td>DVD</td><td>40枚</td><td>長さ約55cm</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🛁</span>水廻り・寝具・おもちゃ（4人世帯平均）</h3>
+    <table>
+      <tr><th>種類</th><th>数量</th></tr>
+      <tr><td>ハンドタオル</td><td>21枚</td></tr>
+      <tr><td>フェイスタオル</td><td>27枚</td></tr>
+      <tr><td>バスタオル</td><td>12枚</td></tr>
+      <tr><td>おもちゃ（ソフトBOX W39 D26 H26㎝）</td><td>×7個</td></tr>
+      <tr><td>お客様用寝具（敷・掛・毛布・枕）</td><td>×2組</td></tr>
+      <tr><td>季節用寝具（掛・毛布）</td><td>×4組</td></tr>
+    </table>
+  </div>
+  <div class="divider">キッチン収納</div>
+  <div class="card">
+    <h3><span class="icon">🍳</span>キッチン収納の使い分け</h3>
+    <div class="g2">
+      <div>
+        <h4>コンロ下キャビネット</h4>
+        <p>フライパン、片手鍋、両手鍋、ミルクパン、グリルパン、調味料、スパイスなど</p>
+        <h4>シンク下キャビネット</h4>
+        <p>包丁、ラップ、ボウル、ザル、バット、計量カップ、保存容器、布巾、すりこぎ、深鍋、土鍋、カセットコンロ、ハンドミキサー、キッチンペーパー、洗剤など</p>
+        <h4>作業台下キャビネット</h4>
+        <p>菜箸、お玉、フライ返し、調味料、スパイス、はさみ、缶詰、レトルト、保存食品、パスタ、酒、ライスボックス、乾物など</p>
+      </div>
+      <div>
+        <h4>背面収納 引き出し深さの目安</h4>
+        <div class="spec-box">
+          <div class="spec-row"><span class="spec-label">深さ5㎝（有効）</span><span class="spec-value">カトラリー・布巾など</span></div>
+          <div class="spec-row"><span class="spec-label">深さ13㎝（有効）</span><span class="spec-value">数枚セットの食器類など</span></div>
+          <div class="spec-row"><span class="spec-label">深さ18㎝（有効）</span><span class="spec-value">どんぶり皿・保存食など</span></div>
+        </div>
+        <h4 style="margin-top:14px">その他収納タイプ</h4>
+        <ul>
+          <li>食器戸棚：茶碗・グラス・湯飲み茶碗など</li>
+          <li>ゴミ箱スペース：幅60㎝で45Lゴミ箱2台収納可</li>
+          <li>家電収納：炊飯器・ポットなど</li>
+          <li>吊戸棚：出し入れ頻度の少ないもの</li>
+          <li>両開き収納：大皿・コーヒーカップなど</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🥫</span>食品庫</h3>
+    <p>標準棚配置：D40cm × 5段（均等割りで1段あたり35cm）</p>
+    <ul>
+      <li>土鍋（9号）W32.6 D29.1 H14.9㎝ → 奥行き35cm程度必要</li>
+      <li>ホットプレート（丸型直径40㎝）→ 奥行き45cm程度必要</li>
+      <li>段ボール等 → 奥行き40cm程度必要</li>
+      <li>土間仕上の場合：ゴミ箱や生ごみ処理機も置くことが可能</li>
+    </ul>
+  </div>
+  <div class="divider">玄関・水廻り</div>
+  <div class="card">
+    <h3><span class="icon">👟</span>玄関・水廻り収納</h3>
+    <div class="g2">
+      <div>
+        <h4>標準の下駄箱</h4>
+        <p>W135 D40 H90㎝ ／ 約30足収納可能<br>紳士用靴箱：W22 D35 H10.5㎝</p>
+        <h4>シューズクローゼット</h4>
+        <p>靴箱サイズで約45足収納可能<br>コートや傘等も収納可<br>奥行き：標準35㎝ ／ 高さ：2m55cm</p>
+      </div>
+      <div>
+        <h4>脱衣室収納目安</h4>
+        <ul>
+          <li>洗濯かご：W35 D35 H60㎝</li>
+          <li>サニタリー用品・ストック洗剤・タオル</li>
+        </ul>
+        <h4>洗面化粧台下収納</h4>
+        <p>バケツ・洗剤など収納可能<br><span style="color:var(--earth)">※背の高い容器（25cm超）は収納できない場合あり</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="divider">WIC・書斎・ロフト</div>
+  <div class="card">
+    <h3><span class="icon">🗃</span>WIC・書斎収納</h3>
+    <div class="g2">
+      <div>
+        <h4>カウンターテーブル（1間幅設置の場合）</h4>
+        <p>利用方法によってカウンターの高さや奥行き、コンセントの位置や数も調整が必要</p>
+        <h4>本棚</h4>
+        <p>文庫本・マンガ本：奥行き18cm<br>雑誌類：奥行き32cm</p>
+      </div>
+      <div>
+        <h4>押入（標準的な収納内容）</h4>
+        <ul>
+          <li>枕棚上：枕・カバン・客用シーツ等</li>
+          <li>中段上：布団3組程度</li>
+          <li>中段下：雛人形・五月人形・衣装ケース9ケース程度</li>
+        </ul>
+        <p style="margin-top:8px">内部奥行き：D80㎝</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🪜</span>ロフト収納</h3>
+    <div class="warn">荷物をロフトに上げる際、天井とぶつからないようある程度の高さが必要です。</div>
+    <table>
+      <tr><th>室内奥行き</th><th>ロフト奥行き</th><th>用途イメージ</th></tr>
+      <tr><td>5,460㎜（3間）</td><td>910㎜</td><td>子供室4.5畳2室の場合</td></tr>
+      <tr><td>6,370㎜（3.5間）</td><td>1,820㎜</td><td>子供室5畳2室の場合</td></tr>
+      <tr><td>7,280㎜（4間）</td><td>1,820㎜</td><td>子供室6畳2室の場合</td></tr>
+    </table>
+  </div>
+  <div class="photo-section"><h4>参考写真</h4><div class="photo-grid" id="photos-収納"></div></div>
+</div>
+
+<!-- 照明 -->
+<div class="section" id="照明">
+  <div class="section-header">
+    <div class="sec-icon">💡</div>
+    <div><h2>照明・コンセント・スイッチ</h2><p>快適な明かりと使いやすい配線計画</p></div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">📏</span>コンセント・スイッチ基本の高さ</h3>
+    <div class="spec-box">
+      <div class="spec-row"><span class="spec-label">コンセント（標準）</span><span class="spec-value">床から250㎜（FL+250）</span></div>
+      <div class="spec-row"><span class="spec-label">スイッチ</span><span class="spec-value">床から1,150㎜（FL+1,150）</span></div>
+      <div class="spec-row"><span class="spec-label">リモコン・インターホン</span><span class="spec-value">床から1,400㎜（FL+1,400）</span></div>
+      <div class="spec-row"><span class="spec-label">洗濯機・冷蔵庫用</span><span class="spec-value">器具とかぶらないよう高めの位置</span></div>
+      <div class="spec-row"><span class="spec-label">エアコン用</span><span class="spec-value">天井付けが標準（14畳以上:200V、14畳未満:100V）</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🔆</span>スイッチの種類と使い分け</h3>
+    <div class="g2">
+      <div>
+        <h4>三路スイッチ（2箇所でON/OFF）おすすめ場所</h4>
+        <ul><li>玄関</li><li>リビング</li><li>階段</li></ul>
+        <h4>四路スイッチ（3箇所以上）</h4>
+        <p>3箇所以上にスイッチがある場合に使用</p>
+        <h4>人感センサー付き照明おすすめ場所</h4>
+        <ul><li>玄関</li><li>トイレ</li><li>足元灯</li></ul>
+        <h4>調光式照明おすすめ場所</h4>
+        <ul><li>リビング</li><li>寝室</li></ul>
+      </div>
+      <div>
+        <div class="tip"><span class="tip-icon">💡</span><div><strong>オンピカ</strong>：照明が付いている時に光る。消し忘れ防止に有効。<br>おすすめ：外部照明・シーリングファン・収納内部</div></div>
+        <div class="tip"><span class="tip-icon">🌑</span><div><strong>オフピカ</strong>：照明が消えている時に光る。暗くてもスイッチの場所がわかりやすい。<br>おすすめ：玄関・居室</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🔌</span>コンセントの種類と設置ポイント</h3>
+    <h4>アース付きコンセント 標準設置位置</h4>
+    <p>洗濯機・電子レンジ・ウォシュレット・冷蔵庫・洗面台（水気・湿気の多い場所）</p>
+    <h4>USB付きコンセント おすすめ場所</h4>
+    <p>カウンター廻り・寝室（スマートフォン・タブレット充電用）</p>
+    <h4>ロボット掃除機のホームベース設置スペース</h4>
+    <p>両側に1.2m・前方に1.2mのスペースが必要</p>
+    <h4>電気自動車用充電設備</h4>
+    <p>3kW充電タイプ：24.5時間 ／ 6kW充電タイプ：12.5時間（日産リーフe+の場合）</p>
+    <h4>とったらリモコン（Panasonic）</h4>
+    <p>ダウンライトやブラケットライトもリモコンで操作可能。スマートスピーカーとの連携も可能。壁スイッチを取るとリモコンとして使用できる（同室内のスイッチに限る）。</p>
+  </div>
+  <div class="card">
+    <h3><span class="icon">☀️</span>照明計画の明るさ基準</h3>
+    <div class="g2">
+      <div class="info">
+        <strong>工房信州の家の明るさ基準</strong><br>
+        ・キッチン：500lx<br>
+        ・ダイニング：500lx<br>
+        ・リビング：1畳あたり400lm<br>
+        ・吹抜け：リビング＋6畳ごとに400lm
+      </div>
+      <div>
+        <h4>色温度の使い分け</h4>
+        <table>
+          <tr><th>色温度</th><th>おすすめの場所</th></tr>
+          <tr><td>昼白色</td><td>WIC・書斎（作業に適した白い光）</td></tr>
+          <tr><td>温白色</td><td>洗面脱衣室・キッチン手元</td></tr>
+          <tr><td>電球色</td><td>リビング・和室（くつろぎの温かい光）</td></tr>
+        </table>
+      </div>
+    </div>
+    <h4>切替・調光機能</h4>
+    <ul>
+      <li>3色温度切替調光タイプ（よくばりシリーズ）：3つの色温度をスイッチ操作で簡単切替</li>
+      <li>2色温度切替調光タイプ（楽調）：2つの色温度をスイッチ操作で簡単切替</li>
+      <li>調光：専用スイッチで100%〜1%まで調光可能</li>
+      <li>温調：明るさを落とすと白熱灯のように色温度が変化</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🛏</span>部屋別おすすめ照明計画</h3>
+    <table>
+      <tr><th>部屋</th><th>おすすめ器具</th><th>ポイント</th></tr>
+      <tr><td>リビングダイニング</td><td>シーリングライト or 間接照明</td><td>ダイニングテーブルの明るさ確保。読書には手元灯かスタンドライト</td></tr>
+      <tr><td>キッチン</td><td>ペンダント or ダウンライト</td><td>手元の明るさ確保。ペンダントはレールで可変性あり</td></tr>
+      <tr><td>吹抜け</td><td>スポットライト or ペンダント</td><td>空間の上方も照らすと明るく感じる</td></tr>
+      <tr><td>寝室</td><td>シーリングライト or ダウンライト</td><td>調光にする。光源が直接目に入らないよう配慮</td></tr>
+      <tr><td>和室</td><td>シーリングライト or ダウンライト</td><td>就寝利用がある場合は調光可能に</td></tr>
+    </table>
+    <div class="tip" style="margin-top:14px"><span class="tip-icon">🚨</span><div><strong>非常灯</strong>：日常のダウンライトが、停電時に約20分間5%の明るさで自動点灯。</div></div>
+    <p style="margin-top:10px;font-size:.84rem">LED照明の寿命は8年〜10年が目安。多くは器具とLED一体型のため、電球が切れると器具ごと取り換えが必要。</p>
+  </div>
+  <div class="photo-section"><h4>照明参考写真</h4><div class="photo-grid" id="photos-照明"></div></div>
+</div>
+
+<!-- 標準機器 -->
+<div class="section" id="標準機器">
+  <div class="section-header">
+    <div class="sec-icon">🔧</div>
+    <div><h2>標準機器の紹介</h2><p>工房信州の家で標準採用している機器一覧</p></div>
+  </div>
+  <div class="g2">
+    <div class="card"><h3><span class="icon">🔔</span>インターホン</h3><p>テレビドアホン<br><strong>VL-SE25X〔パナソニック〕</strong></p></div>
+    <div class="card"><h3><span class="icon">📱</span>リモコン</h3><p>給湯器 ／ トイレウォシュレット</p></div>
+    <div class="card"><h3><span class="icon">🔆</span>スイッチ</h3><p><strong>WIDE i〔東芝〕</strong></p></div>
+    <div class="card"><h3><span class="icon">🔌</span>コンセント</h3><p><strong>WIDE i〔東芝〕</strong></p></div>
+    <div class="card"><h3><span class="icon">🚨</span>天井点検口 ／ 火災報知器</h3><p>火報：まもるくんFSKJ222-B-N（L41）<br>天井点検口：シンワハッチL45</p></div>
+    <div class="card"><h3><span class="icon">🪵</span>床下点検口</h3><p>木製品</p></div>
+    <div class="card"><h3><span class="icon">💨</span>給気口</h3><p>プッシュ式レジスター<br>SPR-100FA</p></div>
+    <div class="card"><h3><span class="icon">🌬</span>エアパス引き子</h3><p>エアパスグループ指定品 ／ 木製品</p></div>
+  </div>
+  <div class="photo-section"><h4>参考写真</h4><div class="photo-grid" id="photos-標準機器"></div></div>
+</div>
+
+<!-- インターネット -->
+<div class="section" id="インターネット">
+  <div class="section-header">
+    <div class="sec-icon">📡</div>
+    <div><h2>インターネット・TV配線</h2><p>快適なデジタル環境づくりのポイント</p></div>
+  </div>
+  <div class="g2">
+    <div class="card"><h3><span class="icon">🌐</span>インターネット接続方法</h3>
+      <div class="tip"><span class="tip-icon">📶</span><div><strong>FTTH（光）</strong>：高速なデータ通信が可能。新規申込から利用開始まで1〜2ヶ月程度かかる。</div></div>
+      <div class="tip"><span class="tip-icon">📺</span><div><strong>CATV（ケーブルテレビインターネット）</strong>：ケーブルテレビのケーブルを使用。ケーブルテレビとセットで選択する場合が多い。</div></div>
+    </div>
+    <div class="card"><h3><span class="icon">📺</span>TV電波受信方法</h3>
+      <h4>1) アンテナ設置（アンテナ・工事費は標準見積外）</h4>
+      <ul>
+        <li>アンテナさえ設置すれば、その他のランニングコストは不要</li>
+        <li>八木式アンテナとフラットアンテナから選択可</li>
+        <li>BS・CSを視聴する場合、別途パラボラアンテナが必要</li>
+      </ul>
+      <div class="warn" style="margin-top:10px">
+        <strong>八木式</strong>：受信力強いが強風で方向が変わる場合あり<br>
+        <strong>フラット</strong>：目立ちにくいが山間地・密集地には不向き
+      </div>
+      <h4>2) ケーブルテレビ</h4>
+      <p>各地域のCATV会社と契約。詳細は各エリアのCATV会社にお問い合わせください。</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">📺</span>各エリアのCATV会社一覧</h3>
+    <table>
+      <tr><th>会社名</th><th>サービスエリア</th></tr>
+      <tr><td>INC 長野ケーブルテレビ</td><td>長野市全域</td></tr>
+      <tr><td>UCV 上田ケーブルビジョン</td><td>上田市・東御市・坂城町・青木村一部</td></tr>
+      <tr><td>テレビ松本ケーブルビジョン</td><td>松本市・塩尻市・山形村・朝日村・筑北村</td></tr>
+      <tr><td>テレビ北信ケーブルビジョン</td><td>中野市・山ノ内町一部</td></tr>
+      <tr><td>Goolight</td><td>須坂市・小布施町・高山村</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🖥</span>壁掛けテレビ 事前に決めておくこと</h3>
+    <div class="g2">
+      <div>
+        <h4>1) レコーダー・TVボードの有無</h4>
+        <ul>
+          <li>テレビ下にTVボードを配置し有線で接続</li>
+          <li>WiFiを経由し無線レコーダーと接続</li>
+          <li>テレビにレコーダー機能が内蔵されているものを購入</li>
+        </ul>
+        <h4>2) テレビサイズ（設置高さ）</h4>
+        <div class="info">フルHD：画面の高さの3倍の距離が最適<br>4Kテレビ：画面の高さの1.5倍の距離が目安<br>例）距離2,000㎜（フルHD）→ 50〜55インチが目安</div>
+      </div>
+      <div>
+        <h4>3) 壁掛け金物の種類</h4>
+        <p>テレビに合わない金物や取付が困難なものもある。事前にテレビ機種・金物を決めておくことが必要。</p>
+        <div class="warn">壁掛けテレビはかなりの重量があるため、壁の下地補強が必要。</div>
+        <p>おすすめ金物：PERLESMITH 品番PSMFK4</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">📻</span>4K・8Kテレビ</h3>
+    <p>4Kテレビ：フルハイビジョンの4倍高精細。使用の場合は別途チューナーが必要。</p>
+    <div class="g2">
+      <div class="info"><strong>アンテナ受信の場合</strong><br>4Kテレビ＋アンテナ または 4K対応テレビ＋チューナー＋アンテナ</div>
+      <div class="info"><strong>ケーブルテレビの場合</strong><br>4K対応テレビ＋4K対応STB（購入orレンタル）<br>TV端子・分配器等は4K対応のものを使用</div>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🏠</span>HOME IoT／スマートホーム（AiSEG2 Panasonic）</h3>
+    <div class="g3">
+      <div class="tip" style="flex-direction:column;align-items:flex-start"><span class="tip-icon">⚡</span><div><strong>時短・便利</strong><br>専用アプリで宅内・宅外から機器の遠隔操作が可能。スマートスピーカーで声での操作も可能。</div></div>
+      <div class="tip" style="flex-direction:column;align-items:flex-start"><span class="tip-icon">🔒</span><div><strong>安心</strong><br>万一の火災発生時、火災警報器と連携して外出先でもお知らせ。</div></div>
+      <div class="tip" style="flex-direction:column;align-items:flex-start"><span class="tip-icon">☀️</span><div><strong>自家消費</strong><br>家の電気をすべて見える化。太陽光パネル設置時は発電状況もリアルタイム表示。</div></div>
+    </div>
+    <div class="warn" style="margin-top:12px">AiSEGを利用してスマートハウス化される場合、宅内配線方法や連携家電の器具選定が特殊なため、事前に担当コーディネーターにご相談ください。</div>
+  </div>
+  <div class="photo-section"><h4>参考写真</h4><div class="photo-grid" id="photos-インターネット"></div></div>
+</div>
+
+<!-- カーテン -->
+<div class="section" id="カーテン">
+  <div class="section-header">
+    <div class="sec-icon">🪟</div>
+    <div><h2>窓廻りスタイル・カーテンファブリックの特徴</h2><p>お部屋の雰囲気と過ごし方に合ったスタイルを</p></div>
+  </div>
+  <div class="g2">
+    <div class="card"><h3><span class="icon">⬆️</span>プレーンシェード</h3>
+      <p>生地をたくし上げるように上下に開閉し、採光を自由に調整できるスタイル。</p>
+      <h4>スタイルバリエーション</h4>
+      <ul>
+        <li><strong>シングルプレーンシェード</strong>：小窓・吹抜け・土間サロンの窓等におすすめ</li>
+        <li><strong>ダブルプレーンシェード</strong>：オープンな土間サロンやリビング廻りにおすすめ</li>
+        <li><strong>プレーンシェード＋レースカーテン</strong>：出入りのある掃き出し窓におすすめ</li>
+      </ul>
+    </div>
+    <div class="card"><h3><span class="icon">🔼</span>ロールスクリーン</h3>
+      <p>1枚のスクリーンを巻き上げることにより採光を自由に調節できるスタイル。フラットですっきりとしたミニマムなフォルムが特徴。部屋の間仕切りや目隠しなど窓周り以外にも様々な用途で使用可能。</p>
+    </div>
+    <div class="card"><h3><span class="icon">🌿</span>ブラインド</h3>
+      <p>スラット（羽根）の角度を調整することで、直射日光や視線を遮るスタイル。キッチンや水廻りなど汚れやすい部屋の窓におすすめ。</p>
+      <ul>
+        <li><strong>横型ブラインド（アルミ製/木製/バンブー）</strong>：Natural・Woodyには木製/バンブー、Mannishにはアルミ製がおすすめ</li>
+        <li><strong>縦型ブラインド</strong>：縦のラインが天井を高く見せる。大きな窓・ペットのいる家庭におすすめ</li>
+      </ul>
+    </div>
+    <div class="card"><h3><span class="icon">🎭</span>ドレープ＋レースカーテン</h3>
+      <p>ドレープカーテン（厚手）とレースカーテンの組み合わせ。レースを窓側に、ドレープを室内側に設置するのが一般的。</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">✨</span>機能性ファブリック</h3>
+    <div class="g2">
+      <div>
+        <h4>遮光性</h4>
+        <table>
+          <tr><th>等級</th><th>遮光率</th><th>明るさの目安</th></tr>
+          <tr><td>1級</td><td>99.99%以上</td><td>人の顔が識別できない程度</td></tr>
+          <tr><td>2級</td><td>99.80%以上</td><td>人の顔が識別できる程度</td></tr>
+          <tr><td>3級</td><td>99.40%以上</td><td>作業には暗いと感じる程度</td></tr>
+        </table>
+        <p style="font-size:.8rem;margin-top:6px">日中就寝する寝室やホームシアターをされたい部屋におすすめ</p>
+      </div>
+      <div>
+        <h4>遮熱性</h4>
+        <p>直射日光熱を遮り、外からの温度変化を抑える。冷暖房効果が逃げにくいため節電効果あり。</p>
+        <h4>レース（機能性レース）</h4>
+        <p>透視性・透光性がある薄手のカーテン。ミラーレースカーテンは外から見えにくい。</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🔩</span>取付方法</h3>
+    <div class="g3">
+      <div class="info"><strong>正面付（枠外付）</strong><br>窓枠よりも上にレールを取り付ける。ゆったりとした印象に仕上がる。窓ガラスからの冷気を防ぐことが可能。</div>
+      <div class="info"><strong>天井付（枠内付）</strong><br>窓枠の中に取付。スッキリとした印象に仕上がる。</div>
+      <div class="info"><strong>カーテンボックス付</strong><br>窓上や天井際に囲いを作って取付部分を隠す方法。</div>
+    </div>
+  </div>
+  <div class="photo-section"><h4>参考写真</h4><div class="photo-grid" id="photos-カーテン"></div></div>
+</div>
+
+<!-- 洗面 -->
+<div class="section" id="洗面">
+  <div class="section-header">
+    <div class="sec-icon">🚿</div>
+    <div><h2>造作洗面おすすめプラン</h2><p>デザイン性と使い勝手を兼ね備えた洗面台</p></div>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <h3><span class="icon">⬜</span>人工大理石・陶器仕様プラン</h3>
+      <div class="spec-box">
+        <div class="spec-row"><span class="spec-label">サイズ</span><span class="spec-value">W1200 D600 H800</span></div>
+        <div class="spec-row"><span class="spec-label">カウンター</span><span class="spec-value">マーブライト【TOTO】</span></div>
+        <div class="spec-row"><span class="spec-label">洗面ボウル</span><span class="spec-value">カウンター式角型洗面器【TOTO】</span></div>
+        <div class="spec-row"><span class="spec-label">水栓</span><span class="spec-value">シングルレバー混合水栓【TOTO】</span></div>
+        <div class="spec-row"><span class="spec-label">一面鏡</span><span class="spec-value">フリーサイズ大型鏡 W700×H800【TOTO】</span></div>
+        <div class="spec-row"><span class="spec-label">両開き戸</span><span class="spec-value">杉 本実目透し横板張り 上部彫込取っ手（W890）</span></div>
+        <div class="spec-row"><span class="spec-label">オープンスペース</span><span class="spec-value">W272</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🏺</span>人工大理石一体型プラン</h3>
+      <div class="spec-box">
+        <div class="spec-row"><span class="spec-label">サイズ</span><span class="spec-value">W1200 D600 H800</span></div>
+        <div class="spec-row"><span class="spec-label">カウンター</span><span class="spec-value">デュポンコーリアン【アイカ】</span></div>
+        <div class="spec-row"><span class="spec-label">洗面ボウル</span><span class="spec-value">デュポンコーリアン ラバトリーボウル KMB5AGW-1【アイカ】</span></div>
+        <div class="spec-row"><span class="spec-label">水栓</span><span class="spec-value">シングルレバー混合水栓【TOTO】</span></div>
+        <div class="spec-row"><span class="spec-label">一面鏡</span><span class="spec-value">フリーサイズ大型鏡 W700×H800【TOTO】</span></div>
+        <div class="spec-row"><span class="spec-label">両開き戸</span><span class="spec-value">杉 本実目透し横板張り 上部彫込取っ手（W890）</span></div>
+        <div class="spec-row"><span class="spec-label">オープンスペース</span><span class="spec-value">W272</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🪨</span>カウンタータイル仕様</h3>
+      <ul>
+        <li>洗面器：ベッセルタイプ、半埋込タイプ等配置可能</li>
+        <li>水栓：洗面器サイズに合わせて選定</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🪵</span>カウンター木製仕様</h3>
+      <ul>
+        <li>洗面器：ベッセルタイプ、半埋込タイプ等配置可能</li>
+        <li>水栓：洗面器サイズに合わせて選定</li>
+      </ul>
+    </div>
+  </div>
+  <div class="info">様々なデザインの造作洗面台の計画が可能です。ご希望の方は、どんなものをイメージされているか、担当コーディネーターにお伝えし、具体的にご相談ください。</div>
+  <div class="photo-section"><h4>施工参考写真</h4><div class="photo-grid" id="photos-洗面"></div></div>
+</div>
+
+<!-- 家具 -->
+<div class="section" id="家具">
+  <div class="section-header">
+    <div class="sec-icon">🛋</div>
+    <div><h2>家具の基本寸法</h2><p>各居室に最適なサイズと必要スペースを考えましょう</p></div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🍽</span>ダイニングテーブル</h3>
+    <p>一人当たり必要なスペース：横幅60〜70㎝、奥行30〜50㎝</p>
+    <h4>テーブル脚形状の比較</h4>
+    <table>
+      <tr><th>脚の種類</th><th>メリット ✓</th><th>デメリット △</th></tr>
+      <tr><td>I字脚・T字脚</td><td>4隅に余裕があり出入りが楽。ベンチタイプの椅子も置きやすい。</td><td>短い辺に座ると脚が邪魔になる</td></tr>
+      <tr><td>4本脚</td><td>安定感がある。短い辺にも椅子を入れることが可能。</td><td>ベンチタイプの椅子の出入りがしづらい</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3><span class="icon">📺</span>テレビ台</h3>
+    <div class="g2">
+      <div>
+        <h4>設置高さ</h4>
+        <p>床に座って見るなら低めを、椅子に座って見るなら高めがおすすめ。テレビの中心を見たときに少し目線が下がるくらいの高さが疲れにくい。</p>
+      </div>
+      <div>
+        <h4>設置幅</h4>
+        <p>テレビ幅よりも広い幅を選ぶことで安定感が増す。将来的にテレビが大きくなることを見越したサイズ選びがおすすめ。</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🛏</span>ベッドサイズ</h3>
+    <table>
+      <tr><th>サイズ</th><th>用途・特徴</th></tr>
+      <tr><td>シングル</td><td>大人一人で使用する一般的サイズ</td></tr>
+      <tr><td>セミダブル</td><td>男性が寝返りをうっても余裕が生まれる</td></tr>
+      <tr><td>ダブル</td><td>大人二人使用の一般的サイズ</td></tr>
+      <tr><td>クイーン</td><td>二人でゆったり。小さなお子様と一緒に寝るスペースも確保可能</td></tr>
+    </table>
+  </div>
+  <div class="photo-section"><h4>参考写真</h4><div class="photo-grid" id="photos-家具"></div></div>
+</div>
+
+<!-- 仕上げ -->
+<div class="section" id="仕上げ">
+  <div class="section-header">
+    <div class="sec-icon">🪵</div>
+    <div><h2>内外装仕上げの特徴</h2><p>素材ごとのメリット・デメリットとお手入れ方法</p></div>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <h3><span class="icon">🌾</span>珪藻土（壁・天井）</h3>
+      <ul>
+        <li>✅ 吸放湿性能・消臭性能に優れる</li>
+        <li>✅ 揮発性有機化合物を発生させる接着剤を一切使わない</li>
+        <li>✅ 天然素材のやわらかな風合いと手仕上げの風合いが楽しめる</li>
+        <li>⚠️ 材料の収縮により、柱や梁が動き、ひび割れることがある</li>
+        <li>⚠️ 地震等の大きな揺れで、ひび割れる場合がある</li>
+      </ul>
+      <h4>お手入れ</h4>
+      <p>普段は乾拭きか硬く絞った雑巾で水拭き。塗替え目安は半年に1回程度。ワックスクリーナーはツヤ出しと汚れ落としが同時にでき経済的。</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon">📜</span>和紙（壁・天井）</h3>
+      <ul>
+        <li>✅ 表面の汚れは消しゴムで消える</li>
+        <li>✅ 障子紙の3倍の厚みがあり、丈夫</li>
+        <li>✅ 漆和紙は調湿作用があり、防水性に優れ水廻りの壁面にも使用可能</li>
+        <li>⚠️ 鮮やかな色のものは5〜10年経つと顔料が浮いてくる</li>
+        <li>⚠️ 彩色和紙は水廻りには適さない</li>
+      </ul>
+      <h4>お手入れ</h4>
+      <p>お手入れ不要。ほこりが気になる場合ははたきで払うか乾拭き（柿渋和紙・漆和紙は水拭き可）。</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🪵</span>板張り（壁・天井）</h3>
+      <ul>
+        <li>✅ 拭き掃除ができるため汚れにくい</li>
+        <li>✅ DIYがしやすい</li>
+        <li>⚠️ 珪藻土の壁に比べて圧迫感がある</li>
+      </ul>
+      <h4>お手入れ</h4>
+      <p>普段は固く絞った雑巾で拭き掃除。頑固な汚れにはメラミンスポンジで優しくこする。</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🌿</span>国産藁床・国産い草表（畳）</h3>
+      <ul>
+        <li>✅ 吸放質性・断熱性に優れる</li>
+        <li>✅ 天然素材のため化学物質に汚染されない</li>
+        <li>✅ やわらかな足触りと心地よい座り心地</li>
+        <li>⚠️ 湿気が高く空気が滞るとカビが生える（新築時は特に換気を多めに）</li>
+      </ul>
+      <h4>お手入れ</h4>
+      <p>畳の目に沿って乾拭きか掃除機。天気の良い日は換気を。<br>耐久性：畳床25〜30年、畳表5〜7年が目安。</p>
+    </div>
+  </div>
+  <div class="divider">炉台・土間の仕上げ材</div>
+  <div class="g2">
+    <div class="card">
+      <h3><span class="icon">🔲</span>メーカータイル</h3>
+      <ul><li>✅ 様々なデザインや色が豊富</li><li>⚠️ 明るいカラーは煤汚れが目立ちやすい</li></ul>
+      <p><strong>お手入れ：</strong>掃除機で煤を掃う。汚れ落とし用クリーナーを使用。</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🪨</span>十和田石・大理石</h3>
+      <ul><li>✅ 自然石の風合いやデザインが楽しめる</li><li>⚠️ 明るい目の石のため煤・液体汚れが目立ちやすい</li></ul>
+    </div>
+    <div class="card">
+      <h3><span class="icon">⬛</span>土間コンクリート 金コテ仕上げ</h3>
+      <ul>
+        <li>✅ スッキリシンプルなデザイン性</li>
+        <li>⚠️ 濡れると滑りやすいため外部での使用は要注意</li>
+        <li>⚠️ しみになると目立つため食品庫のゴミの液だれ注意</li>
+      </ul>
+      <p><strong>お手入れ：</strong>ホウキでの掃き掃除。ひどい汚れはデッキブラシで。</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🪨</span>大谷石</h3>
+      <ul>
+        <li>✅ 自然の石でデザイン性が高く優しい風合い</li>
+        <li>✅ 空気孔が多いため暖かい印象</li>
+        <li>⚠️ 表面がやわらかくもろい / 凍結による割れ注意</li>
+        <li>⚠️ 黒ずみやカビが現れやすい / 酸洗い・酸性洗浄液使用不可</li>
+      </ul>
+    </div>
+    <div class="card" style="grid-column:1/-1">
+      <h3><span class="icon">🟤</span>テラコッタタイル</h3>
+      <div class="g2">
+        <ul>
+          <li>✅ 自然の土を焼いた素焼きタイル。使い込むほどに味が出る</li>
+          <li>✅ 冬でも冷たくなりすぎず、夏でもさらっとしている</li>
+        </ul>
+        <ul>
+          <li>⚠️ 吸水性が高く汚れが付きやすい</li>
+          <li>⚠️ 自然素材のため均一なデザインにならない</li>
+          <li><strong>お手入れ：</strong>ホウキでの掃き掃除（水撒き掃除は不向き）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="photo-section"><h4>施工参考写真</h4><div class="photo-grid" id="photos-仕上げ"></div></div>
+</div>
+
+<!-- 給湯器 -->
+<div class="section" id="給湯器">
+  <div class="section-header">
+    <div class="sec-icon">🔥</div>
+    <div><h2>給湯器のあれこれ</h2><p>熱源ごとの特徴・費用・機能を比較しましょう</p></div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🔥</span>給湯器 比較表</h3>
+    <table>
+      <tr><th></th><th>石油給湯器（灯油）</th><th>ガス給湯器</th><th>エコキュート（電気）</th><th>エコワン（電気+ガス）</th></tr>
+      <tr><td><strong>機種</strong></td><td>OTQ-G4702SAW【ノーリツ】</td><td>エコジョーズ RUF-E2405AW【リンナイ】</td><td>SRT-WK374D【三菱電機】寒冷地向け</td><td>ECOONE【リンナイ】</td></tr>
+      <tr><td><strong>給湯方式</strong></td><td>直圧式</td><td>直圧式</td><td>貯湯＋直圧式</td><td>貯湯式</td></tr>
+      <tr><td><strong>容量</strong></td><td>46.5kW（春秋27L/分・冬16L/分）</td><td>24号（春秋24L/分・冬16L/分）</td><td>370L（3〜4人家族向け）</td><td>24号＋タンク100L</td></tr>
+      <tr><td><strong>初期費用</strong></td><td>245,600円（オイルタンク含む）</td><td>306,000円</td><td>366,000円（オール電化専用工事含む）</td><td>41,100円</td></tr>
+      <tr><td><strong>保証期間</strong></td><td>2年</td><td>2年</td><td>2年（延長最大8年）</td><td>2年（延長最大3年）</td></tr>
+      <tr><td><strong>おすすめ暖房</strong></td><td>温水ルームヒーター・薪ストーブ</td><td>温水ルームヒーター・薪ストーブ</td><td>エアコン・薪ストーブ</td><td>温水ルームヒーター・薪ストーブ</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3><span class="icon">⚙️</span>フルオート・オート機能の違い</h3>
+    <div class="g2">
+      <div class="info"><strong>フルオート</strong>：湯はりから追いだき・保温・たし湯まで全自動。追いだき配管の自動洗浄機能あり。残り湯の沸かし直しは設定水位まで自動調整。</div>
+      <div class="info"><strong>オート</strong>：湯はりから追いだき・保温までが自動。入浴中はやさしく追いだき。</div>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">📊</span>給湯器ランニングコスト比較（月別・年間）</h3>
+    <table>
+      <tr><th>熱源</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6〜8月</th><th>9〜10月</th><th>11月</th><th>12月</th><th>年間</th></tr>
+      <tr><td>ガス（プロパン）</td><td>¥14,800</td><td>¥13,700</td><td>¥13,200</td><td>¥9,300</td><td>¥8,700</td><td>約¥8,000〜8,300</td><td>約¥8,400〜8,600</td><td>¥12,300</td><td>¥14,100</td><td>¥127,400</td></tr>
+      <tr><td>電気（エコキュート）</td><td>¥13,700</td><td>¥12,500</td><td>¥10,600</td><td>¥8,200</td><td>¥7,800</td><td>約¥7,100〜7,400</td><td>約¥7,500〜7,700</td><td>¥9,700</td><td>¥12,500</td><td>¥112,000</td></tr>
+    </table>
+    <p style="font-size:.76rem;color:var(--text-light);margin-top:6px">※年間概算。含む内容：基本料金・給湯・暖房・調理・再エネ賦課金など</p>
+  </div>
+  <div class="photo-section"><h4>参考写真</h4><div class="photo-grid" id="photos-給湯器"></div></div>
+</div>
+
+<!-- 暖房 -->
+<div class="section" id="暖房">
+  <div class="section-header">
+    <div class="sec-icon">🌡</div>
+    <div><h2>暖房機器のあれこれ</h2><p>暖房機器の種類・特徴・メリット・デメリット</p></div>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <h3><span class="icon">🪵</span>薪ストーブ</h3>
+      <span class="badge">輻射＋対流式</span>
+      <p style="margin-top:10px">機種例：IRONDOG No.7<br>最大熱出力：7,000〜12,000kcal/h（機種により異なる）<br>最大燃焼時間：約5〜8時間（薪による）<br>炉台・煙突の設置工事が必要</p>
+      <ul style="margin-top:10px">
+        <li>✅ 遠赤外線なので質の高い暖房が得られる</li>
+        <li>✅ インテリア性が高く、火を見ながらの生活を楽しめる</li>
+        <li>✅ 停電時でも使用可能</li>
+        <li>⚠️ 薪の調達・着火等、手間がかかる</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="icon">🛢</span>FF式灯油ストーブ</h3>
+      <span class="badge">対流式</span>
+      <p style="margin-top:10px">機種例：暖DAYBOY CRH-600DS/400DS【コロナ】<br>熱出力：1,700〜5,830kcal<br>給排気筒で屋外から空気を取り入れて燃焼する</p>
+      <ul style="margin-top:10px">
+        <li>✅ 温まりが早い / 多少の移動・回転が可能</li>
+        <li>⚠️ 1台当たりの暖房効果は低い</li>
+      </ul>
+    </div>
+    <div class="card" style="grid-column:1/-1">
+      <h3><span class="icon">🌬</span>温水ルームヒーター</h3>
+      <span class="badge">対流式</span>
+      <p style="margin-top:10px">機種例：FF-SG6818K【コロナ】<br>熱出力：10,000kcal/h（コロナ室外機UHB-EG120：室内機2〜4台対応）<br>熱源：灯油 / ガス<br>室外機で燃焼を行い、クリーンな温風が室内機から出てくる仕組み</p>
+      <div class="g2" style="margin-top:10px">
+        <ul>
+          <li>✅ 室外で燃焼するため室内の空気が汚れなく、においが少ない</li>
+        </ul>
+        <ul>
+          <li>⚠️ 同時稼働箇所数によっては室外機が2台必要</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="photo-section"><h4>参考写真</h4><div class="photo-grid" id="photos-暖房"></div></div>
+</div>
+
+<!-- ペット -->
+<div class="section" id="ペット">
+  <div class="section-header">
+    <div class="sec-icon">🐾</div>
+    <div><h2>ペットへのおすすめコーディネート</h2><p>大切な家族と一緒に暮らすための住まいづくり</p></div>
+  </div>
+  <div class="g2">
+    <div class="card"><h3><span class="icon">🐕</span>DOG（犬）との暮らし</h3><p>ペットの種類や生活スタイルに合わせて、床材・建具・収納・動線など様々な観点からご提案いたします。詳細は担当コーディネーターにご相談ください。</p></div>
+    <div class="card"><h3><span class="icon">🐈</span>CAT（猫）との暮らし</h3><p>ペットの種類や生活スタイルに合わせて、床材・建具・収納・動線など様々な観点からご提案いたします。詳細は担当コーディネーターにご相談ください。</p></div>
+  </div>
+  <div class="photo-section"><h4>施工参考写真</h4><div class="photo-grid" id="photos-ペット"></div></div>
+</div>
+
+<!-- 選木 -->
+<div class="section" id="選木">
+  <div class="section-header">
+    <div class="sec-icon">🌲</div>
+    <div><h2>選木ツアーで出会った山の木・太鼓梁</h2><p>おすすめ使用例</p></div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🌳</span>立木の使用例</h3>
+    <p>選木ツアーで選んだ立木から180角 / 150角の2本を角柱として使用。丸柱のご希望の際は担当コーディネーターにご相談ください。</p>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🪵</span>太鼓梁のおすすめ使用場所</h3>
+    <p>選木ツアーで選んだ太鼓梁を、お客様のお好みや空間のデザインに合わせて選定。</p>
+    <div class="g2" style="margin-top:14px">
+      <div class="info"><strong>1階天井と吹抜け壁との間</strong><br>空間の区切りにアクセントを加える</div>
+      <div class="info"><strong>吹き抜け内</strong><br>大空間に存在感のある木の表情を</div>
+      <div class="info"><strong>天井下</strong><br>天井の印象を豊かにする配置</div>
+      <div class="info"><strong>登り梁</strong><br>傾斜のある空間に力強い表情を</div>
+    </div>
+  </div>
+  <div class="photo-section"><h4>施工参考写真</h4><div class="photo-grid" id="photos-選木"></div></div>
+</div>
+
+<!-- withコロナ -->
+<div class="section" id="コロナ">
+  <div class="section-header">
+    <div class="sec-icon">🏡</div>
+    <div><h2>住まいの工夫</h2><p>家の中をもっと豊かに、もっと便利に</p></div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🌿</span>土間サロン・ウッドデッキ</h3>
+    <p>中と外をつなぐ土間サロン。窓を開けてタープを張ることで空間が広がる。ウッドデッキとの組み合わせで、家の中で外の心地よさを楽しめる空間になります。</p>
+    <p style="margin-top:8px">おすすめアイテム：ガーデンユニットテーブルウッドトップセット、アーバンシェードトライアングル/レクタングルL、FDチェアワイド、IGTスリム等</p>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🏠</span>間取りの工夫</h3>
+    <div class="g3">
+      <div class="tip" style="flex-direction:column;align-items:flex-start"><span class="tip-icon">💧</span><div><strong>玄関に近い手洗い設置</strong><br>帰宅後すぐに手洗いができる動線</div></div>
+      <div class="tip" style="flex-direction:column;align-items:flex-start"><span class="tip-icon">💼</span><div><strong>書斎スペース</strong><br>在宅ワーク・リモートワークに対応した働く場所としての空間</div></div>
+      <div class="tip" style="flex-direction:column;align-items:flex-start"><span class="tip-icon">🥫</span><div><strong>大容量の収納・食品庫</strong><br>玄関→食品庫→キッチンの動線も大切に</div></div>
+    </div>
+    <h4>書斎のタイプ</h4>
+    <table>
+      <tr><th>タイプ</th><th>特徴</th></tr>
+      <tr><td>オープンの書斎</td><td>家族の様子を見守りながら作業や仕事を進められる空間</td></tr>
+      <tr><td>セミオープンの書斎</td><td>半個室のようなスペース。集中でき、家族の気配を感じられる空間</td></tr>
+      <tr><td>完全個室の書斎</td><td>家族団らんの空間とメリハリを。趣味に没頭できる空間。オンライン会議等に最適</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🚰</span>便利・非接触設備</h3>
+    <table>
+      <tr><th>商品</th><th>特徴</th></tr>
+      <tr><td>リニアスライドシステム【LIXIL】</td><td>玄関ドアが自動開閉（100V AC電源・配線工事必要）</td></tr>
+      <tr><td>ハンズフリー水栓【LIXIL】</td><td>吐水口内蔵センサーが手やモノを感知し吐水・止水を自動で行う</td></tr>
+      <tr><td>タッチレス水栓【LIXIL】</td><td>水栓上部のセンサーに手をかざすことで吐水・止水</td></tr>
+      <tr><td>つま先らく押し水栓スイッチ【TOTO】</td><td>足元のスイッチ操作で吐水・止水。手元ハンドル操作が不要</td></tr>
+      <tr><td>簡易型エアーシャワー【日本エアーテック】</td><td>コンセントにプラグをさすだけで使用可能（100V AC電源）</td></tr>
+    </table>
+  </div>
+  <div class="photo-section"><h4>参考写真</h4><div class="photo-grid" id="photos-コロナ"></div></div>
+</div>
+
+<!-- 植栽 -->
+<div class="section" id="植栽">
+  <div class="section-header">
+    <div class="sec-icon">🌳</div>
+    <div><h2>庭・植栽計画のプランニングポイント</h2><p>植栽で建物は2倍良く見える</p></div>
+  </div>
+  <div class="g2">
+    <div class="card"><h3><span class="icon">☀️</span>南庭のポイント ～夏涼しく、冬暖かく～</h3><p>高さ調整による空間の広がり感の演出が大切です。</p></div>
+    <div class="card"><h3><span class="icon">🌿</span>外部からのポイント ～植栽で建物は2倍良く見える～</h3><p>1本は背の高い木を植えてアクセントに。</p></div>
+    <div class="card"><h3><span class="icon">🪟</span>内部からのポイント ～くつろぎの場から見える位置に～</h3><p>リビングや居室からの眺めを意識した植栽計画が大切です。</p></div>
+    <div class="card"><h3><span class="icon">🏡</span>玄関のポイント ～記念樹の成長と共に～</h3><p>記念樹の成長と共に記念写真を撮りましょう。</p></div>
+  </div>
+  <div class="card">
+    <h3><span class="icon">🌲</span>おすすめのシンボルツリー</h3>
+    <div class="g2">
+      <div>
+        <h4>常緑樹（1年中緑）</h4>
+        <ul><li>ソヨゴ（成長：遅い）</li><li>キンモクセイ</li></ul>
+        <h4>落葉樹（季節感を楽しめる）</h4>
+        <ul><li>イロハモミジ</li><li>コブシ</li><li>ハナミズキ</li><li>ジューンベリー</li><li>カツラ</li><li>ヤマボウシ</li><li>アオダモ</li></ul>
+      </div>
+      <div>
+        <h4>諏訪展示場南庭プランの樹木</h4>
+        <table>
+          <tr><th>樹木</th><th>種類</th><th>成長</th><th>開花</th></tr>
+          <tr><td>ハウチワカエデ</td><td>落葉広葉樹</td><td>早い</td><td>4〜5月</td></tr>
+          <tr><td>アオハダ</td><td>落葉広葉樹</td><td>早い</td><td>5〜6月</td></tr>
+          <tr><td>アオダモ</td><td>落葉広葉樹</td><td>やや遅い</td><td>4〜5月</td></tr>
+          <tr><td>シャラ</td><td>落葉広葉樹</td><td>やや早い</td><td>6〜7月</td></tr>
+          <tr><td>ナツハゼ</td><td>落葉広葉樹</td><td>やや早い</td><td>—</td></tr>
+          <tr><td>ソヨゴ</td><td>常緑広葉樹</td><td>遅い</td><td>—</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="photo-section"><h4>植栽参考写真</h4><div class="photo-grid" id="photos-植栽"></div></div>
+</div>
+
+</main>
+
+<footer>
+  <p>家づくりガイド コーディネート編 2023年版</p>
+  <p>フォレストコーポレーション 空間ラボ</p>
+  <p style="margin-top:6px">〒396-0027 長野県伊那市ますみヶ丘7352-1　TEL：0265-73-8333</p>
+  <p style="margin-top:4px"><a href="https://www.kobo-shinshu.com">www.kobo-shinshu.com</a></p>
+  <p style="margin-top:12px;font-size:.72rem;opacity:.7">※本資料は「家づくりガイド コーディネート編」の内容をもとに作成しています。</p>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Tab switching
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// Back to top
+window.addEventListener('scroll', () => {
+  document.getElementById('backTop').classList.toggle('show', window.scrollY > 300);
+});
+
+// Load photos from content JSON
+async function loadPhotos() {
+  try {
+    const res = await fetch('content/photos.json');
+    if (!res.ok) return;
+    const data = await res.json();
+    Object.entries(data).forEach(([section, photos]) => {
+      const grid = document.getElementById('photos-' + section);
+      if (!grid) return;
+      photos.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'photo-item';
+        div.innerHTML = `<img src="${p.src}" alt="${p.caption || ''}">`;
+        grid.appendChild(div);
+      });
+    });
+  } catch(e) { /* no photos yet */ }
+}
+loadPhotos();
+</script>
+</body>
+</html>
