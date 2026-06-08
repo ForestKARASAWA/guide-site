@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: ForestKARASAWA/guide-site
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
@@ -14,109 +11,24 @@ collections:
   - name: "photos"
     label: "写真管理"
     files:
-      - label: "打合せ内容"
-        name: "打合せ"
+      - label: "写真データ"
+        name: "photos"
         file: "content/photos.json"
         fields:
-          - label: "打合せ内容の写真"
-            name: "打合せ"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "建築部位名称の写真"
-            name: "部位名称"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "4つのテイストの写真"
-            name: "テイスト"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "収納の写真"
-            name: "収納"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "照明・コンセントの写真"
-            name: "照明"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "標準機器の写真"
-            name: "標準機器"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "インターネット・TVの写真"
-            name: "インターネット"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "窓廻り・カーテンの写真"
-            name: "カーテン"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "造作洗面の写真"
-            name: "洗面"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "家具の写真"
-            name: "家具"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "内外装仕上げの写真"
-            name: "仕上げ"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "給湯器の写真"
-            name: "給湯器"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "暖房機器の写真"
-            name: "暖房"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "ペットの写真"
-            name: "ペット"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "選木・太鼓梁の写真"
-            name: "選木"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "住まいの工夫の写真"
-            name: "コロナ"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
-          - label: "庭・植栽の写真"
-            name: "植栽"
-            widget: list
-            fields:
-              - {label: "写真", name: src, widget: image}
-              - {label: "キャプション", name: caption, widget: string, required: false}
+          - {label: "打合せ内容", name: "打合せ", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "建築部位名称", name: "部位名称", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "テイスト", name: "テイスト", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "収納", name: "収納", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "照明", name: "照明", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "標準機器", name: "標準機器", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "インターネット", name: "インターネット", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "カーテン", name: "カーテン", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "洗面", name: "洗面", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "家具", name: "家具", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "仕上げ", name: "仕上げ", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "給湯器", name: "給湯器", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "暖房", name: "暖房", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "ペット", name: "ペット", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "選木", name: "選木", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "住まいの工夫", name: "コロナ", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
+          - {label: "植栽", name: "植栽", widget: list, fields: [{label: "写真", name: src, widget: image}, {label: "キャプション", name: caption, widget: string, required: false}]}
